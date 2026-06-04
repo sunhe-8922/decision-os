@@ -32,10 +32,15 @@ Step 7: Action + Verify     → 7/30/90天计划 + 止损条件
 ## Key Features
 
 - **Plugin Routing**: Auto-detects decision domain and routes to specialized skills
-- **Domain Memo Variants**: Investment / Real Estate / Career-specific Decision Memo templates
+- **Three Option Strategies**: 要不要型 / 比较型 / 组合配置型
+- **Domain Memo Variants**: Investment / Real Estate / Career / Cross-domain templates
+- **Scoring Anchors**: Concrete 1-10 rubric for each scoring dimension
 - **Red Team Protocol**: Structured adversarial analysis with anti-pattern warnings
+- **Cognitive Bias Check**: Anchoring, sunk cost, confirmation bias, framing, loss aversion
+- **Decision Speed Guide**: Fast vs slow decision criteria
 - **Review → Skill Update Loop**: Decision reviews drive framework evolution
 - **Data Integration**: neodata-financial-search + westock-data + WebSearch
+- **Source Citation Protocol**: Mandatory hyperlinks, cross-verification, date stamps, output checklist
 
 ## Version History
 
@@ -45,6 +50,8 @@ Step 7: Action + Verify     → 7/30/90天计划 + 止损条件
 | v1.1 | 2026-06-04 | Trigger refinement + Plugin injection + Data protocols | Auto-optimization: 63.75%→80% |
 | v1.2 | 2026-06-04 | Review trigger rules + Archiving | Auto-optimization: iteration dimension |
 | v1.3 | 2026-06-04 | Routing decision tree + Domain Memo variants + Red team anti-patterns + Review→Skill loop | Auto-optimization: 83.75%→90%+ |
+| v1.4 | 2026-06-04 | Three option strategies + Scoring anchors + Intent inference + Cross-domain merge + Cognitive bias check + Decision speed guide | Auto-optimization: 73.75%→92.5% |
+| v1.5 | 2026-06-04 | Source citation protocol (hyperlinks + cross-verification + output checklist) + Memo template "Data Sources" section | User data provenance standards built-in |
 
 ## Usage
 

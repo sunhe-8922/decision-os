@@ -1,7 +1,5 @@
 # Decision OS — 通用决策系统插件映射
 
-本文件定义 Decision OS 如何路由到各领域 Plugin skill。
-
 ## Plugin 注册表
 
 | Plugin | Skill 名称 | 触发条件 | 状态 |
@@ -16,14 +14,34 @@
 
 ## 路由规则
 
-1. **精确匹配优先**：如果用户问题明确属于某个 Plugin 的触发条件，直接路由到该 skill
-2. **多 Plugin 情况**：如果问题跨领域（如"在珠海买房投资"同时涉及 Real Estate + Investment），主 skill 负责，辅 skill 提供数据支持
-3. **无匹配 Plugin**：使用 Decision OS 通用 7 层流程处理
-4. **Plugin 内部仍遵循 Decision OS 内核**：目标→约束→选项→概率→赔率→风险→行动
+1. **精确匹配优先**：明确属于某 Plugin → 直接路由
+2. **多 Plugin**：主 skill 负责，辅 skill 提供数据支持
+3. **无匹配 Plugin**：通用 7 层流程
+4. **Plugin 内部仍遵循 Decision OS 内核**
 
-## 每个 Plugin 必须实现的接口
+## 意图推断规则
 
-所有 Plugin skill 在其 SKILL.md 中必须包含以下结构，以确保与 Decision OS 对齐：
+当用户表述模糊时：
+
+| 用户表述 | 推断意图 | 主 Plugin |
+|---------|---------|-----------|
+| "买房投资" | 投资优先 | ge-weidong-invest |
+| "买房自住" | 居住优先 | land-valuator |
+| "买房还是买基金" | 资产配置 | ge-weidong-invest（跨域） |
+| "XX行业好还是YY行业好" | 行业比较 | sector-overview |
+| "该不该跳槽" | 职业决策 | 通用流程 |
+
+**推断原则**：有收益预期表述 → 投资优先；有使用需求表述 → 居住优先。不确定时默认投资优先。
+
+## 跨域合并操作
+
+1. 主 Plugin 执行完整流程 → 输出领域数据+结论
+2. 辅 Plugin 仅执行数据获取步骤 → 输出跨领域数据
+3. Decision OS 执行 Step 1-7 → 合并双方数据
+4. 选项空间必须包含"混合配置"类选项
+5. Decision Memo 追加两套领域专属字段（标注来源 Plugin）
+
+## Plugin 必须实现的接口
 
 ```markdown
 ## Decision OS 接口
